@@ -1,0 +1,20 @@
+const { By } = require("selenium-webdriver");
+
+module.exports = {
+  addTvShow: async (driver) => {
+    await driver
+      .findElement(By.xpath("//input"))
+      .sendKeys("Good Times");
+
+    await driver.findElement(By.xpath("//button")).click();
+
+    const tvShow = await driver.findElement(By.xpath("//li"));
+    const displayed = tvShow.isDisplayed();
+
+    expect(displayed).toBeTruthy();
+  },
+};
+
+module.exports ={
+    addMovie:addTvShow
+};
